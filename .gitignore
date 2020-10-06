@@ -1,0 +1,7 @@
+workspace.xml
+.idea/workspace.xml
+/.idea/
+/vendor/
+/node_modules/
+/test/
+/cache/
