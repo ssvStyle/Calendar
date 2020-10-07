@@ -1,12 +1,24 @@
 window.addEventListener('DOMContentLoaded', () => {
-    const monthBlock = document.getElementById('month'),
-          yearBlock = document.getElementById('year'),
+    let monthBlock = document.getElementById('month'),
+          yearBlock = document.getElementById('yearBlock'),
           calendarBlock = document.getElementById('calendar');
 
-
+    /**
+     * class Calendar
+     */
     class Celendar {
 
+        /**
+         * All name of month in rus lang
+         *
+         * @type {string[]}
+         */
         rusMonth = ['Январь','Февраль','Март','Апрель','Май','Июнь','Июль','Август','Сентябрь','Октябрь','Ноябрь','Декабрь'];
+        /**
+         * All name of month in eng lang
+         *
+         * @type {string[]}
+         */
         engMonth = ["January","February","March","April","May","June","July", "August","September","October","November","December"];
         daysBlock = document.getElementsByClassName('day');
 
@@ -111,25 +123,23 @@ window.addEventListener('DOMContentLoaded', () => {
             case 'nextMonth':
                 celendar = new Celendar(date, date.getMonth(), date.getFullYear());
                 celendar.nextMonth().showDays();
-                monthBlock.innerText = celendar.getMonth();
                 yearBlock.innerText = celendar.getYear();
+                monthBlock.innerText = celendar.getMonth();
                 break;
             case 'prevMonth':
                 celendar = new Celendar(date, date.getMonth(), date.getFullYear());
                 celendar.prevMonth().showDays();
-                monthBlock.innerText = celendar.getMonth();
                 yearBlock.innerText = celendar.getYear();
+                monthBlock.innerText = celendar.getMonth();
                 break;
 
         }
         //console.log(event.target.id);
     });
 
-    celendar.showDays();
-    monthBlock.innerText = celendar.getMonth();
-    yearBlock.innerText = celendar.getYear();
-
-
-
+    celendar.showDays(yearBlock);
+    yearBlock.innerHTML = celendar.getYear();
+    monthBlock.innerHTML = celendar.getMonth();
+    console.log(celendar.getYear());
 
 });

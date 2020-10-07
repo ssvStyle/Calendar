@@ -1,9 +1,28 @@
 .calendar {
   width: 400px;
   height: fit-content;
-  border: 1px solid black;
-  &_month p {
-    text-align: center;
+  border-radius: 10px;
+  background-color: #f1f1f1;
+  box-shadow: 8px 0px 11px -3px rgba(171,171,171,1);
+  &_month {
+    & #prevMonth, #nextMonth {
+      cursor: pointer;
+      &:hover {
+        color: rgb(58, 196, 53);
+      }
+    }
+    & div {
+      display: flex;
+      flex-direction: row;
+      align-items: baseline;
+      & p {
+       margin-right: 10px;
+      }
+    }
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    justify-content: space-around;
   }
   &_wrapper{
     &-week:first-of-type {
@@ -18,10 +37,13 @@
         margin: 5px 0;
         text-align: center;
         width: calc(100% / 7);
-        //border: 1px solid #e7e7e7;
         &:nth-child(6), &:nth-child(7) {
-          color: red;
+          color: #800000;
         }
+      }
+      & .day {
+        font-weight: 600;
+        font-size: 16px;
       }
 
     }
